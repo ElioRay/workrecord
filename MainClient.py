@@ -9,13 +9,10 @@ from ExcelEntity import Person
 print("接收参数" + str(sys.argv));
 #　打开文件
 workbook = xlrd.open_workbook("/home/elio/桌面/workbook.xls")
-
 workrecordsheet = workbook.sheets()[2]
-
 personWorkTime = []
 rowCount = workrecordsheet.nrows
 colCount = workrecordsheet.ncols;
-
 print(workrecordsheet.name);
 print(workrecordsheet.nrows);
 
@@ -28,7 +25,7 @@ def analysiz(personlist):
             dayliRecord = recod[j]
             if len(dayliRecord)> 1 and len(dayliRecord) < 5 :
                 print(person.get_name() +  str(j + 1)  + "号考勤异常")
-        person.printLate()
+        #person.printLate()
 
 
 def addworkTime(rowNum):
@@ -49,7 +46,7 @@ for i in range(1, rowCount - 1):
         col = rowData[j]
         #print(col)
         if(isinstance(col, float)):
-            print()
+            continue
         elif(col.find("姓") >= 0):
            # print(rowData[j + 2])
             i = i+1
@@ -57,6 +54,6 @@ for i in range(1, rowCount - 1):
             entity = Person(rowData[j + 2], workTime)
             personWorkTime.append(entity)
         #print(col)
-        
+
 analysiz(personWorkTime)
 
