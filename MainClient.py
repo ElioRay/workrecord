@@ -57,37 +57,6 @@ for i in range(1, rowCount - 1):
             entity = Person(rowData[j + 2], workTime)
             personWorkTime.append(entity)
         #print(col)
+        
 analysiz(personWorkTime)
 
-
-
-def addworkTime(rowNum):
-    workTime = [];
-    rowData = workrecordsheet.row_values(i)
-    for i in range(len(rowData)):
-        dailyTime = rowData[i]
-        for j in range(0, len(dailyTime)):
-            timnHour = dailyTime[j].spilt(":")
-           # print(timnHour)
-   
-def readDate():
-    datelist : list
-    return datelist
-
-
-def readWorkTime():
-    workTimeList : list
-
-
-def readLine():
-    for i in range(1, rowCount):
-        rowData = workrecordsheet.row_values(i)
-        for j in range(1, len(rowData)):
-            #print(rowData)
-            col = rowData[j]
-            print(col)
-            if(isinstance(col, float)):
-                print()
-            elif(col.find("姓名") > 0):
-                print(rowData[j+1])
-            #print(col)
